@@ -102,7 +102,8 @@ namespace Task_2
 
         static void Main(string[] args)
         {
-            var readJson = JsonConvert.DeserializeObject<MyClass>(File.ReadAllText("jsonFile.json")); //Enter path to your json
+            string path = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
+            var readJson = JsonConvert.DeserializeObject<MyClass>(File.ReadAllText(path + @"/jsonFile.json")); 
 
             Console.WriteLine();
             Console.WriteLine("Numbers of the first array");
