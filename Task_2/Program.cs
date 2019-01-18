@@ -10,9 +10,9 @@ namespace Task_2
     {
         public static List<int> FindUnique(int[] ArrayOne, int[] ArrayTwo)
         {
-            List<int> UniqueNumbers = new List<int>();
-            List<int> arrOne = new List<int>(ArrayOne);
-            List<int> arrTwo = new List<int>(ArrayTwo);
+            var UniqueNumbers = new List<int>();
+            var arrOne = new List<int>(ArrayOne);
+            var arrTwo = new List<int>(ArrayTwo);
             IEnumerable<int> distinctOne= arrOne.Distinct();
             IEnumerable<int> distinctTwo = arrTwo.Distinct();
 
@@ -27,7 +27,7 @@ namespace Task_2
 
         public static List<int> AddUniq(IEnumerable<int> distinctOne)
         {
-            List<int> list = new List<int>();
+            var list = new List<int>();
             foreach (int num in distinctOne)
                 list.Add(num);
             return list;
@@ -35,7 +35,7 @@ namespace Task_2
 
         public static List<int> SearchUniq(List<int> array1, List<int> array2)
         {
-            List<int> list = new List<int>();
+            var list = new List<int>();
             foreach (var item in array1)
                 if (array2.Where(c => c == item).Count() == 0)
                     list.Add(item);
@@ -44,8 +44,8 @@ namespace Task_2
 
         public static List<int> FindUniqueNotEven(int[] Array)
         {
-            List<int> UniqueNumbers = new List<int>();
-            List<int> array = new List<int>(Array);
+            var UniqueNumbers = new List<int>();
+            var array = new List<int>(Array);
             IEnumerable<int> distinctOne = array.Distinct();
             int i = 0;
             foreach (int num in distinctOne)
@@ -59,9 +59,9 @@ namespace Task_2
 
         public static int SumEvenNumber(int[] ArrayOne, int[] ArrayTwo)
         {
-            List<int> RepeatNumbers = new List<int>();
-            List<int> arrOne = new List<int>(ArrayOne);
-            List<int> arrTwo = new List<int>(ArrayTwo);
+            var RepeatNumbers = new List<int>();
+            var arrOne = new List<int>(ArrayOne);
+            var arrTwo = new List<int>(ArrayTwo);
 
             arrOne = SearchEven(arrOne);
             arrTwo = SearchEven(arrTwo);
@@ -72,7 +72,7 @@ namespace Task_2
 
         public static List<int> SearchEven(List<int> Array)
         {
-            List<int> list = new List<int>();
+            var list = new List<int>();
             foreach (int num in Array)
             {
                 if (num % 2 != 0)
@@ -85,7 +85,7 @@ namespace Task_2
 
         public static List<int> SearchEvenNotSecondArray(List<int> array1, List<int> array2)
         {
-            List<int> list = new List<int>();
+            var list = new List<int>();
             foreach (var item in array1)
                 if (array2.Where(c => c == item).Count() == 0)
                     list.Add(item);
@@ -116,12 +116,12 @@ namespace Task_2
             Array.Sort(readJson.firstArray);
             Array.Sort(readJson.secondArray);
 
-            List<int> firstUnique = FindUnique(readJson.firstArray, readJson.secondArray);
+            var firstUnique = FindUnique(readJson.firstArray, readJson.secondArray);
             for (int i = 0; i < firstUnique.Count; i++)
                 Console.WriteLine("Unique numbers from both arrays = {0}", firstUnique[i]);
             Console.WriteLine("-----------------------------------------");
 
-            List<int> UniqueNotEven = FindUniqueNotEven(readJson.firstArray);
+            var UniqueNotEven = FindUniqueNotEven(readJson.firstArray);
             for (int i = 0; i < UniqueNotEven.Count; i++)
                 Console.WriteLine("Unique odd number from the first array = {0}", UniqueNotEven[i]);
             Console.WriteLine("-----------------------------------------");
